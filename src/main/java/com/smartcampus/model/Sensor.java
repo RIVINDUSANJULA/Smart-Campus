@@ -37,4 +37,26 @@ public class Sensor {
         return roomId;
     }
 
+
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setCurrentValue(double currentValue) {
+        this.currentValue = currentValue;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
 }

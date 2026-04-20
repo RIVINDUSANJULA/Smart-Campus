@@ -44,4 +44,19 @@ public class RoomResource {
         return Response.ok(room).build();
         //if 200 --> Build
     }
+    //Room - ID Specific
+
+
+    @POST
+    public Response createRoom(Room room) {
+        //Input JSON --> Room NEW
+
+
+        DataStore.rooms.put(room.getId(), room);
+        // Datastore - Room Var (HashMap) --> roomId (Room.Java) - ID & room (Inputed JSON - @Consume JSON FIle)
+
+        // Like 202
+        return Response.status(Response.Status.CREATED).entity(room).build();
+    }
+    // Room Create NEW
 }

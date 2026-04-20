@@ -36,4 +36,15 @@ public class DiscoveryInfo {
         return endpoints;
     }
 
+    // Set
+    public void setVersion(String version) {
+        this.version = version;
+    }
+    public void setAdminContact(String adminContact) {
+        this.adminContact = adminContact;
+    }
+    public void setEndpoints(Map<String, String> endpoints) {
+        this.endpoints = endpoints;
+    }
+
 }

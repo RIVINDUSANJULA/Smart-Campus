@@ -4,10 +4,7 @@ package com.smartcampus.resource;
 import com.smartcampus.model.Room;
 import com.smartcampus.repository.DataStore;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -30,4 +27,21 @@ public class RoomResource {
         //200 --> Build
     }
     // Get all The Room - HashMap --> List
+
+
+    @GET
+    @Path("/{roomId}")
+    //Value of PATH above Only
+    public Response getRoom(@PathParam("roomId") String roomId) {
+        Room room = DataStore.rooms.get(roomId);
+        // If Path - roomId in HashMap
+        // It Shoudl be a O(1)
+
+        //If Not FOund
+        if (room == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("NO ROOM").build();
+        }
+        return Response.ok(room).build();
+        //if 200 --> Build
+    }
 }

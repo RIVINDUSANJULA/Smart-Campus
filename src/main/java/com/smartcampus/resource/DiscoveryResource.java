@@ -40,7 +40,7 @@ public class DiscoveryResource {
 
 
         return Response.ok(info).build();
-        // If 202 --> Build
+        // If 200 --> Build
         // else Fail
 
     }

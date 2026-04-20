@@ -49,7 +49,7 @@ public class Room {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-    public void setSensorIds(List<String> sensorId) {
+    public void setSensorId(List<String> sensorId) {
         this.sensorId = sensorId;
     }
 

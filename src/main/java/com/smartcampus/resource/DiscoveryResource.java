@@ -38,5 +38,10 @@ public class DiscoveryResource {
         );
         // Version,Admin,MAP (PATHS - ROOMS & SENSORS) --> DiscoveryInfo
 
+
+        return Response.ok(info).build();
+        // If 202 --> Build
+        // else Fail
+
     }
 }

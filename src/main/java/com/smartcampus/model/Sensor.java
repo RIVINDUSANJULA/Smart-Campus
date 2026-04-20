@@ -16,4 +16,25 @@ public class Sensor {
         this.roomId = roomId;
         this.currentValue = 0.0;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public double getCurrentValue() {
+        return currentValue;
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
 }

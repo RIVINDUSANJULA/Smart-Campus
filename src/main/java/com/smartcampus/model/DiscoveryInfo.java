@@ -15,4 +15,11 @@ public class DiscoveryInfo {
 
 
     public DiscoveryInfo() {}
+
+    public DiscoveryInfo(String version, String adminContact, Map<String, String> endpoints) {
+        this.version = version;
+        this.adminContact = adminContact;
+        this.endpoints = endpoints;
+    }
+
 }

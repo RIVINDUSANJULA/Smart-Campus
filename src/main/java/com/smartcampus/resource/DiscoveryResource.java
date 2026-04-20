@@ -23,5 +23,10 @@ public class DiscoveryResource {
 
     public Response getDiscoveryInfo(){
         Map<String, String> resourceLinks = new HashMap<>();
+
+        resourceLinks.put("rooms", "/api/v1/rooms");
+        resourceLinks.put("sensors", "/api/v1/sensors");
+        // HashMap - Above 2 --> room, sensors
+        // ENDPOINTS
     }
 }

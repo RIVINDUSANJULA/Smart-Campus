@@ -1,6 +1,7 @@
 package com.smartcampus.resource;
 
 
+import com.smartcampus.exception.RoomNotEmptyException;
 import com.smartcampus.model.Room;
 import com.smartcampus.repository.DataStore;
 
@@ -59,4 +60,24 @@ public class RoomResource {
         return Response.status(Response.Status.CREATED).entity(room).build();
     }
     // Room Create NEW
+
+
+
+
+    //DELETE ROOM
+    @DELETE
+    @Path("/{roomId}")
+    public Response deleteRoom(@PathParam("roomId") String roomId) {
+        Room room = DataStore.rooms.get(roomId);
+
+        //If Room Not FOund
+        if (room == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        DataStore.rooms.remove(roomId);
+
+        // Delete COmplete
+        return Response.noContent().build();
+    }
 }

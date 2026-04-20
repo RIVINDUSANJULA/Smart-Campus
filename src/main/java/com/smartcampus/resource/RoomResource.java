@@ -75,6 +75,10 @@ public class RoomResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
+        if (!room.getSensorId().isEmpty()) {
+            throw new RoomNotEmptyException("Room " + roomId + " have sensors --> Can't delete.");
+        }
+
         DataStore.rooms.remove(roomId);
 
         // Delete COmplete

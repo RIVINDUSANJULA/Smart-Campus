@@ -22,4 +22,18 @@ public class DiscoveryInfo {
         this.endpoints = endpoints;
     }
 
+
+    // Get
+    public String getVersion() {
+        return version;
+    }
+
+    public String getAdminContact() {
+        return adminContact;
+    }
+
+    public Map<String, String> getEndpoints() {
+        return endpoints;
+    }
+
 }

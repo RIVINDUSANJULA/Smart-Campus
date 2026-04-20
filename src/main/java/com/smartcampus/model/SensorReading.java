@@ -25,6 +25,17 @@ public class SensorReading {
         return value;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
 
 
 }

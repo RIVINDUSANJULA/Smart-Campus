@@ -12,4 +12,19 @@ public class SensorReading {
         this.timestamp = timestamp;
         this.value = value;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+
+
 }

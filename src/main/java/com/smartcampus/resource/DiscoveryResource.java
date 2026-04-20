@@ -1,5 +1,7 @@
 package com.smartcampus.resource;
 
+import com.smartcampus.model.DiscoveryInfo;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,5 +30,13 @@ public class DiscoveryResource {
         resourceLinks.put("sensors", "/api/v1/sensors");
         // HashMap - Above 2 --> room, sensors
         // ENDPOINTS
+
+        DiscoveryInfo info = new DiscoveryInfo(
+                "1.0.0",
+                "admin@smartcampus.westminster.ac.uk",
+                resourceLinks
+        );
+        // Version,Admin,MAP (PATHS - ROOMS & SENSORS) --> DiscoveryInfo
+
     }
 }

@@ -54,6 +54,8 @@ public class SensorReadingResource {
         // Fetch Data
         DataStore.readings.get(sensorId).add(reading);
 
+        return Response.status(Response.Status.CREATED).entity(reading).build();
+        // Created OR not??
 
     }
 }

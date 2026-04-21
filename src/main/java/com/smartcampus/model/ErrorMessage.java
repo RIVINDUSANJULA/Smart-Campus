@@ -14,4 +14,25 @@ public class ErrorMessage {
         this.documentation = documentation;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+    public int getErrorCode() {
+        return errorCode;
+    }
+    public String getDocumentation() {
+        return documentation;
+    }
+
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+    public void setDocumentation(String documentation) {
+        this.documentation = documentation;
+    }
+
 }

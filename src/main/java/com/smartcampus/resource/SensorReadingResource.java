@@ -1,5 +1,6 @@
 package com.smartcampus.resource;
 
+import com.smartcampus.exception.SensorUnavailableException;
 import com.smartcampus.model.Sensor;
 import com.smartcampus.model.SensorReading;
 import com.smartcampus.repository.DataStore;
@@ -37,13 +38,17 @@ public class SensorReadingResource {
 
 
     @POST
-    public Response addReading(SensorReading reading) {
+    public Response addReading(SensorReading reading) throws SensorUnavailableException {
         Sensor parentSensor = DataStore.sensors.get(sensorId);
 
         if (parentSensor == null) {
             return Response.status(Response.Status.NOT_FOUND)
                     .entity("Parent Sensor - Not Found.")
                     .build();
+        }
+
+        if ("MAINTENANCE".equalsIgnoreCase(parentSensor.getStatus())) {
+            throw new SensorUnavailableException("Sensor " + sensorId + " Maintaining --> Can't Get New Reading.");
         }
 
         parentSensor.setCurrentValue(reading.getValue());

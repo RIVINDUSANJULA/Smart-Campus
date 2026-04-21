@@ -31,5 +31,13 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
         }
 
         // Dependency Validation (422) - Create - Sensor (NEW) BUT NO ROOM
+
+
+        // 403 - MAINTENANCE
+        if (ex instanceof SensorUnavailableException) {
+            errorInfo = new ErrorMessage(ex.getMessage(), 403, "https://api.smartcampus.com/docs/errors/403");
+            status = Response.Status.FORBIDDEN;
+        }
+        return null;
     }
 }

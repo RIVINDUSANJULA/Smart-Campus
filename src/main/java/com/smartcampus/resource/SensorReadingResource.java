@@ -8,4 +8,10 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 // GET & POST
 public class SensorReadingResource {
+
+    private String sensorId;
+
+    public SensorReadingResource(String sensorId) {
+        this.sensorId = sensorId;
+    }
 }

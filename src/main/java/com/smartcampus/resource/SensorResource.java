@@ -33,5 +33,15 @@ public class SensorResource {
         return Response.ok(allSensors).build();
     }
 
+    @POST
+    public Response registerSensor(Sensor sensor) {
+
+
+        // Save Sensor & Room Data -- New
+        DataStore.sensors.put(sensor.getId(), sensor);
+        DataStore.rooms.get(sensor.getRoomId()).getSensorId().add(sensor.getId());
+
+    }
+
 
 }

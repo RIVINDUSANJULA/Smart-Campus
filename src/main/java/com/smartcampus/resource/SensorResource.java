@@ -52,4 +52,13 @@ public class SensorResource {
     }
 
 
+    @Path("/{sensorId}/readings")
+    public SensorReadingResource getReadingsResource(@PathParam("sensorId") String sensorId) {
+        return new SensorReadingResource(sensorId);
+    }
+
+    // No Get or Post
+    // ID (Parmeter, Just Call it Like param (Node.js)) --> Object
+
+
 }

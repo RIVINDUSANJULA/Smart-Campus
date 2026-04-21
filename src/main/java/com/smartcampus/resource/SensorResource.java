@@ -18,7 +18,12 @@ import java.util.List;
 
 public class SensorResource {
 
+    @GET
+    public Response getSensors(@QueryParam("type") String type) {
+        List<Sensor> allSensors = new ArrayList<>(DataStore.sensors.values());
 
+        return Response.ok(allSensors).build();
+    }
 
 
 }

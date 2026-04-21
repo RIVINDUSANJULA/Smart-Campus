@@ -46,6 +46,9 @@ public class SensorResource {
         DataStore.sensors.put(sensor.getId(), sensor);
         DataStore.rooms.get(sensor.getRoomId()).getSensorId().add(sensor.getId());
 
+
+        return Response.status(Response.Status.CREATED).entity(sensor).build();
+
     }
 
 

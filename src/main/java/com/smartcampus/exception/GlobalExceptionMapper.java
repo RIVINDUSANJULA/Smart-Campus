@@ -44,5 +44,10 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
             status = Response.Status.INTERNAL_SERVER_ERROR;
         }
         // HTTP 500 Internal Server Error
+
+        return Response.status(status)
+                .entity(errorInfo)
+                .type(MediaType.APPLICATION_JSON)
+                .build();
     }
 }

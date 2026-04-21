@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -44,6 +45,14 @@ public class SensorReadingResource {
                     .entity("Parent Sensor - Not Found.")
                     .build();
         }
+
+        parentSensor.setCurrentValue(reading.getValue());
+
+
+        DataStore.readings.putIfAbsent(sensorId, new CopyOnWriteArrayList<>());
+        // If (Sensor -> History) --> OK else --> Create A New
+        // Fetch Data
+        DataStore.readings.get(sensorId).add(reading);
 
 
     }

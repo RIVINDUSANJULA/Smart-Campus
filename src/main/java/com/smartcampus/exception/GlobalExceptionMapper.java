@@ -2,6 +2,7 @@ package com.smartcampus.exception;
 
 import com.smartcampus.model.ErrorMessage;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -19,5 +20,16 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
             status = Response.Status.CONFLICT;
         }
         // Delete Attempt - Room BUT Sensor IS THERE --> Resource Conflict (409)
+
+
+        if (ex instanceof LinkedResourceNotFoundException) {
+            errorInfo = new ErrorMessage(ex.getMessage(), 422, "https://api.smartcampus.com/docs/errors/422");
+            return Response.status(422)
+                    .entity(errorInfo)
+                    .type(MediaType.APPLICATION_JSON)
+                    .build();
+        }
+
+        // Dependency Validation (422) - Create - Sensor (NEW) BUT NO ROOM
     }
 }

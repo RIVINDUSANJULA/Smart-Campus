@@ -1,5 +1,6 @@
 package com.smartcampus.resource;
 
+import com.smartcampus.exception.LinkedResourceNotFoundException;
 import com.smartcampus.model.Sensor;
 import com.smartcampus.repository.DataStore;
 
@@ -35,6 +36,10 @@ public class SensorResource {
 
     @POST
     public Response registerSensor(Sensor sensor) {
+
+        if (!DataStore.rooms.containsKey(sensor.getRoomId())) {
+            throw new LinkedResourceNotFoundException(sensor.getRoomId() + " Not Exist, Therefore Can't Save Sensor ID");
+        }
 
 
         // Save Sensor & Room Data -- New

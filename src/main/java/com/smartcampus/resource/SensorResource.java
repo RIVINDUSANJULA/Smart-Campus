@@ -44,7 +44,7 @@ public class SensorResource {
 
         // Save Sensor & Room Data -- New
         DataStore.sensors.put(sensor.getId(), sensor);
-        DataStore.rooms.get(sensor.getRoomId()).getSensorId().add(sensor.getId());
+        DataStore.rooms.get(sensor.getRoomId()).getSensorIds().add(sensor.getId());
 
 
         return Response.status(Response.Status.CREATED).entity(sensor).build();
@@ -52,7 +52,7 @@ public class SensorResource {
     }
 
 
-    @Path("/{sensorId}/readings")
+    @Path("/{sensorId}/read")
     public SensorReadingResource getReadingsResource(@PathParam("sensorId") String sensorId) {
         return new SensorReadingResource(sensorId);
     }

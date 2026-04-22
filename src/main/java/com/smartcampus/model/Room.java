@@ -9,18 +9,18 @@ public class Room {
     private String name;
     private int capacity;
 
-    private List<String> sensorId;
+    private List<String> sensorIds;
     //Need Sensors Java
 
     public Room() {
-        this.sensorId = new ArrayList<>();
+        this.sensorIds = new ArrayList<>();
     }
 
     public Room(String id, String name, int capacity) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
-        this.sensorId = new ArrayList<>();
+        this.sensorIds = new ArrayList<>();
     }
 
     public String getId() {
@@ -35,8 +35,8 @@ public class Room {
         return capacity;
     }
 
-    public List<String> getSensorId() {
-        return sensorId;
+    public List<String> getSensorIds() {
+        return sensorIds;
     }
 
 
@@ -50,7 +50,7 @@ public class Room {
         this.capacity = capacity;
     }
     public void setSensorId(List<String> sensorId) {
-        this.sensorId = sensorId;
+        this.sensorIds = sensorId;
     }
 
 }

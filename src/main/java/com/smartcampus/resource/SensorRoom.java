@@ -18,7 +18,7 @@ import java.util.List;
 // JSON GET
 // JSON POST
 @Consumes(MediaType.APPLICATION_JSON)
-public class RoomResource {
+public class SensorRoom {
 
     @GET
     public Response getAllRooms() {
@@ -75,7 +75,7 @@ public class RoomResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        if (!room.getSensorId().isEmpty()) {
+        if (!room.getSensorIds().isEmpty()) {
             throw new RoomNotEmptyException("Room " + roomId + " have sensors --> Can't delete.");
         }
 

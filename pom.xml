@@ -56,6 +56,7 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
         </plugins>
